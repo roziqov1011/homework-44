@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movies</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-light">
+  <header class="mb-2 py-3 text-center">
+    <div class="container">
+      <h1 class="h3 mb-0">Movies catalog</h1>
+    </div>
+  </header>
+
+  <main>
+    <div class="container-xl">
+      <div class="row">
+        <section class="col-md-4 mb-4">
+          <div class="container">
+            <h2 class="visually-hidden">Movie search form</h2>
+
+            <form class="js-search-form" action="https://echo.htmlacademy.ru" method="GET" autocomplete="false">
+              <div class="input-group my-1">
+                <input class="form-control js-search-form__title-input" type="search" name="title"
+                  placeholder="Avengers" aria-label="Title">
+              </div>
+
+              <div class="input-group my-1">
+                <input class="form-control js-search-form__rating-input" type="number" step="any" name="min_rating"
+                  placeholder="7.5" value="6" aria-label="Minimum raitng">
+              </div>
+
+              <div class="select-group my-1">
+                <select class="form-control js-search-form__genre-select" name="genre" aria-label="Genre">
+                  <option value="all" selected>All</option>
+                </select>
+              </div>
+
+              <div class="select-group my-1">
+                <select class="form-control js-search-form__sort-select" name="sort" aria-label="Sorting">
+                  <option value="rating_desc" selected>Rating (hight to low)</option>
+                  <option value="rating_asc">Rating (low to hight)</option>
+                  <option value="az">A-Z</option>
+                  <option value="za">Z-A</option>
+                  <option value="year_desc">Year (new to old)</option>
+                  <option value="year_asc">Year (old to new)</option>
+                </select>
+              </div>
+
+              <button class="btn btn-primary btn-block my-1" type="submit">Search</button>
+            </form>
+          </div>
+        </section>
+
+        <section class="col-md-8">
+          <h2 class="h4">Search results</h2>
+          <div class="alert alert-info">Use the form on the left to search for a movie</div>
+
+          <ul class="search-results row list-unstyled">
+
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- TEMPLATES -->
+
+  <!-- Search result template -->
+  <template id="search-result-template">
+    <li class="search-results__item movie col-sm-6 mb-4">
+      <div class="card">
+        <img class="movie__poster card-img-top" src="" alt="" width="300" height="200">
+
+        <div class="card-body">
+          <h3 class="movie__title h5"></h3>
+
+          <p class="card-text">
+            <span class="movie__year"></span>
+          </p>
+
+          <p class="card-text">
+            <span class="movie__ranting"></span>
+          </p>
+
+          <p class="card-text">
+            <a class="movie-trailer-link" href="" target="_blank">Watch trailer</a>
+          </p>
+        </div>
+      </div>
+    </li>
+  </template>
+
+  <script src="js/normalized-movies.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/scripts.js"></script>
+</body>
+
+</html>
