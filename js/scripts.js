@@ -123,14 +123,13 @@ const sortSearchResults = (results, sortType) => {
 // findMovie
 
 const findMovie = (title, minRating, genre) => {
-  return normalizedMovies.filter((movie) => {
-    var doesMatchCategory = genre === "all" || movie.categories.includes(genre);
 
+  return normalizedMovies.filter((movie) => {
+    var genreRegEx = new RegExp(genre , "gi")
+    var doesMatchCategory = genre === "all" || movie.categories.join(" ").match(genreRegEx);
 
     return (
-      movie.title.match(title) &&
-      movie.imdbRating >= minRating &&
-      doesMatchCategory
+      movie.title.match(title) && movie.imdbRating >= minRating && doesMatchCategory
     );
   });
 }
@@ -143,13 +142,13 @@ elSearchForm.addEventListener("submit", (evt) => {
   var movieTitleRegex = new RegExp(searchTitle, "gi");
   var minimumRanting = Number(elRatingInput.value);
   var genre = elGenreSelect.value;
+  
   var sorting = elSortSelect.value;
 
   var searchResult = findMovie(movieTitleRegex, minimumRanting, genre);
 
-  console.log(findMovie(movieTitleRegex, minimumRanting, genre));
+  console.log(movieTitleRegex, minimumRanting, genre);
   var test = sortSearchResults(searchResult, sorting)
-  // console.log(test);
 
   renderMovies(searchResult, movieTitleRegex);
 })
