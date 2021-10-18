@@ -100,22 +100,22 @@ const sortObjectYear = (array) => {
 
 const sortSearchResults = (results, sortType) => {
   if (sortType == "az") {
-    sortObjectAZ(results)
+    sortObjectAZ(results);
   } 
   else if (sortType == "za") {
     sortObjectAZ(results).reverse();
   }
   else if(sortType == "year_desc"){
-    sortObjectYear(results)
-  }
-  else if(sortType == "year_asc"){
     sortObjectYear(results).reverse();
   }
+  else if(sortType == "year_asc"){
+    sortObjectYear(results);
+  }
   else if(sortType == "rating_desc"){
-    sortObjectRanting(results)
+    sortObjectRanting(results).reverse()
   }
   else if(sortType == "rating_asc"){
-    sortObjectRanting(results).reverse();
+    sortObjectRanting(results);
   }
 }
 
